@@ -1,9 +1,780 @@
-<html>
- 
-<body>
-  <h1>Johann Victor</h1>
-  <p>Welcome to my website!</p>
-  <img src="https://content.codecademy.com/articles/github-pages-via-web-app/happy-ice-cream.gif" />
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Johann Victor | Senior Customer Success & Operations Specialist</title>
+    <link rel="icon" type="image/jpeg" href="MeNew.jpg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        slate: {
+                            850: '#0f172a',
+                            900: '#0b0f19',
+                            950: '#070a12',
+                        },
+                        brand: {
+                            50: '#eff6ff',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #475569;
+        }
+        
+        .glass-panel {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        
+        .glass-nav {
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 50%, #93c5fd 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .gradient-border {
+            position: relative;
+            border-radius: 0.75rem;
+            background: linear-gradient(135deg, rgba(59,130,246,0.3), rgba(255,255,255,0.05));
+            padding: 1px;
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-100 font-sans antialiased selection:bg-brand-500 selection:text-white">
+
+    <!-- Sticky Navigation Bar -->
+    <nav class="fixed top-0 left-0 w-full z-50 glass-nav">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Brand Logo / Name -->
+                <a href="#" class="flex items-center space-x-3 group">
+                    <div class="w-10 h-10 rounded-lg overflow-hidden shadow-lg shadow-brand-500/20 group-hover:scale-105 transition-transform duration-300">
+                        <img src="MeNew.jpg" alt="Johann Victor" class="w-full h-full object-cover">
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-bold text-lg text-white tracking-tight leading-tight group-hover:text-brand-400 transition-colors">Johann Victor</span>
+                        <span class="text-xs text-slate-400">Operations & Client Success</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <div class="hidden md:flex items-center space-x-1">
+                    <a href="#about" class="px-3 py-2 rounded-md text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 transition-colors">About</a>
+                    <a href="#experience" class="px-3 py-2 rounded-md text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 transition-colors">Experience</a>
+                    <a href="#certifications" class="px-3 py-2 rounded-md text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 transition-colors">Certifications</a>
+                    <a href="#skills" class="px-3 py-2 rounded-md text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 transition-colors">Skills & Systems</a>
+                    <a href="#contact" class="ml-4 px-4 py-2 rounded-lg text-sm font-medium bg-brand-600 hover:bg-brand-500 text-white shadow-md shadow-brand-500/20 hover:shadow-brand-500/40 transition-all duration-200">Contact Me</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="p-2 rounded-md text-slate-400 hover:text-white hover:bg-slate-800 focus:outline-none">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Dropdown Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-900/95 border-b border-slate-800 px-4 pt-2 pb-4 space-y-1">
+            <a href="#about" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800">About</a>
+            <a href="#experience" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800">Experience</a>
+            <a href="#certifications" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800">Certifications</a>
+            <a href="#skills" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800">Skills & Systems</a>
+            <a href="#contact" class="mobile-link block px-3 py-2 rounded-md text-base font-medium bg-brand-600 text-white text-center">Contact Me</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden">
+        <!-- Background Decorative Glows -->
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-brand-600/15 rounded-full blur-[120px] pointer-events-none"></div>
+        <div class="absolute top-1/3 right-10 w-[300px] h-[300px] bg-blue-500/10 rounded-full blur-[100px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="max-w-3xl">
+                <!-- Status Badge -->
+                <div class="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full glass-panel text-xs font-medium text-brand-400 mb-6 border border-brand-500/20">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                    <span>Available for Remote Opportunities Worldwide</span>
+                </div>
+
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white mb-6 leading-tight">
+                    Johannes Jacobus <br class="hidden sm:inline"/>
+                    <span class="gradient-text">(Johann) Victor</span>
+                </h1>
+
+                <p class="text-xl sm:text-2xl text-slate-300 font-medium mb-4">
+                    Senior Customer Success & Operations Specialist
+                </p>
+
+                <p class="text-slate-400 text-base sm:text-lg leading-relaxed mb-8 max-w-2xl">
+                    14+ years driving client retention, managing enterprise operations, and scaling high-volume support workflows with zero-defect execution. Experienced in short-term personal lines insurance and tech operations.
+                </p>
+
+                <!-- Call to Action Buttons -->
+                <div class="flex flex-wrap gap-4 items-center">
+                    <a href="#experience" class="px-6 py-3.5 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-semibold text-sm shadow-lg shadow-brand-500/25 hover:shadow-brand-500/40 hover:-translate-y-0.5 transition-all duration-200 flex items-center space-x-2">
+                        <span>View Experience</span>
+                        <i data-lucide="arrow-down" class="w-4 h-4"></i>
+                    </a>
+                    <a href="#contact" class="px-6 py-3.5 rounded-xl glass-panel hover:bg-slate-800 text-slate-200 hover:text-white font-semibold text-sm border border-slate-700/60 hover:-translate-y-0.5 transition-all duration-200 flex items-center space-x-2">
+                        <i data-lucide="mail" class="w-4 h-4 text-brand-400"></i>
+                        <span>Get in Touch</span>
+                    </a>
+                    <a href="javascript:void(0)" onclick="copyEmail()" class="px-4 py-3.5 rounded-xl glass-panel hover:bg-slate-800 text-slate-400 hover:text-slate-200 transition-colors text-sm flex items-center space-x-2" title="Copy Email">
+                        <i data-lucide="copy" class="w-4 h-4"></i>
+                        <span id="copy-text">Copy Email</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Highlights / Metrics Bar -->
+    <section class="border-y border-slate-800/80 bg-slate-950/60 py-10 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center md:text-left">
+                <div class="p-4 rounded-xl border border-slate-800/60 bg-slate-900/40">
+                    <div class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight gradient-text mb-1">14+</div>
+                    <div class="text-xs sm:text-sm font-medium text-slate-400">Years Industry Experience</div>
+                </div>
+                <div class="p-4 rounded-xl border border-slate-800/60 bg-slate-900/40">
+                    <div class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight gradient-text mb-1">100%</div>
+                    <div class="text-xs sm:text-sm font-medium text-slate-400">Remote Ready & Equipped</div>
+                </div>
+                <div class="p-4 rounded-xl border border-slate-800/60 bg-slate-900/40">
+                    <div class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight gradient-text mb-1">Enterprise</div>
+                    <div class="text-xs sm:text-sm font-medium text-slate-400">Client Operations & Retention</div>
+                </div>
+                <div class="p-4 rounded-xl border border-slate-800/60 bg-slate-900/40">
+                    <div class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight gradient-text mb-1">B2B & B2C</div>
+                    <div class="text-xs sm:text-sm font-medium text-slate-400">Account & Risk Support</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left: Bio Content -->
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="inline-flex items-center space-x-2 text-brand-400 text-xs font-semibold uppercase tracking-wider">
+                        <i data-lucide="user" class="w-4 h-4"></i>
+                        <span>About Johann</span>
+                    </div>
+
+                    <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">
+                        Bridging high-touch client service with technical operational rigor.
+                    </h2>
+
+                    <p class="text-slate-300 leading-relaxed">
+                        I am a versatile, process-driven senior operations and customer success professional with over 14 years of experience delivering operational excellence across customer service, short-term personal lines insurance, and tech operations.
+                    </p>
+
+                    <p class="text-slate-400 leading-relaxed">
+                        My career has been built on a foundation of trust, structured problem-solving, and continuous learning. Whether leading complex client renewals, navigating risk and compliance, or optimizing ticketing workflows in modern CRM platforms, I focus on turning operational friction into seamless, high-retention client experiences.
+                    </p>
+
+                    <!-- Key Pillars -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+                        <div class="p-4 rounded-xl glass-panel border border-slate-800 flex items-start space-x-3">
+                            <div class="p-2 rounded-lg bg-brand-500/10 text-brand-400 shrink-0">
+                                <i data-lucide="shield-check" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-semibold text-white">Risk & Policy Handling</h4>
+                                <p class="text-xs text-slate-400 mt-1">Short-term personal lines insurance expert with strict compliance alignment.</p>
+                            </div>
+                        </div>
+
+                        <div class="p-4 rounded-xl glass-panel border border-slate-800 flex items-start space-x-3">
+                            <div class="p-2 rounded-lg bg-brand-500/10 text-brand-400 shrink-0">
+                                <i data-lucide="workflow" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-semibold text-white">Process Optimization</h4>
+                                <p class="text-xs text-slate-400 mt-1">SOP building, CRM hygiene, and high-volume ticket resolution.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Quick Profile Card -->
+                <div class="lg:col-span-5">
+                    <div class="gradient-border p-6 glass-panel rounded-2xl relative">
+                        <div class="space-y-6">
+                            <div class="flex items-center space-x-4 border-b border-slate-800 pb-5">
+                                <img src="MeNew.jpg" alt="Johann Victor" class="w-16 h-16 rounded-2xl object-cover shadow-lg">
+                                <div>
+                                    <h3 class="text-lg font-bold text-white">Johann Victor</h3>
+                                    <p class="text-xs text-slate-400">Location: Western Cape, South Africa</p>
+                                    <p class="text-xs text-brand-400 font-medium mt-1">Global Remote Specialist</p>
+                                </div>
+                            </div>
+
+                            <div class="space-y-3 text-sm">
+                                <div class="flex justify-between py-1.5 border-b border-slate-800/60">
+                                    <span class="text-slate-400">Primary Discipline:</span>
+                                    <span class="text-slate-200 font-medium">Customer Success & Ops</span>
+                                </div>
+                                <div class="flex justify-between py-1.5 border-b border-slate-800/60">
+                                    <span class="text-slate-400">Specialization:</span>
+                                    <span class="text-slate-200 font-medium">Personal Lines & Retention</span>
+                                </div>
+                                <div class="flex justify-between py-1.5 border-b border-slate-800/60">
+                                    <span class="text-slate-400">Timezone Flexibility:</span>
+                                    <span class="text-slate-200 font-medium">US Business Hours / SAST</span>
+                                </div>
+                                <div class="flex justify-between py-1.5">
+                                    <span class="text-slate-400">Languages:</span>
+                                    <span class="text-slate-200 font-medium">English (Native/Neutral)</span>
+                                </div>
+                            </div>
+
+                            <div class="pt-2">
+                                <a href="https://www.linkedin.com/in/johann-victor-040a55180/?isSelfProfile=true" target="_blank" rel="noopener noreferrer" class="w-full py-2.5 px-4 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white font-medium text-xs flex items-center justify-center space-x-2 transition-colors border border-slate-700/50">
+                                    <i data-lucide="linkedin" class="w-4 h-4 text-blue-400"></i>
+                                    <span>Connect on LinkedIn</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Timeline Section -->
+    <section id="experience" class="py-20 bg-slate-950/40 border-t border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <div class="inline-flex items-center space-x-2 text-brand-400 text-xs font-semibold uppercase tracking-wider mb-2">
+                    <i data-lucide="briefcase" class="w-4 h-4"></i>
+                    <span>Career Track</span>
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">Professional Timeline</h2>
+                <p class="text-slate-400 text-sm mt-2">Over 14 years of driving operational efficiency, client retention, and team alignment.</p>
+            </div>
+
+            <!-- Timeline Container -->
+            <div class="relative max-w-4xl mx-auto">
+                <!-- Vertical Line -->
+                <div class="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-slate-800 -translate-x-1/2"></div>
+
+                <!-- Timeline Item 1 -->
+                <div class="relative mb-12 md:mb-16">
+                    <div class="flex flex-col md:flex-row items-start">
+                        <!-- Date Badge (Desktop Left) -->
+                        <div class="md:w-1/2 md:pr-12 md:text-right mb-2 md:mb-0">
+                            <span class="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-brand-500/10 text-brand-400 border border-brand-500/20">
+                                2020 – Present
+                            </span>
+                            <div class="text-xs text-slate-400 mt-1">Enterprise Operations & Client Success</div>
+                        </div>
+
+                        <!-- Timeline Point -->
+                        <div class="absolute left-4 md:left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-slate-900 border-2 border-brand-500 flex items-center justify-center z-10 shadow-lg shadow-brand-500/20">
+                            <i data-lucide="award" class="w-4 h-4 text-brand-400"></i>
+                        </div>
+
+                        <!-- Content Card (Right) -->
+                        <div class="ml-12 md:ml-0 md:w-1/2 md:pl-12">
+                            <div class="glass-panel p-6 rounded-2xl border border-slate-800 hover:border-slate-700 transition-all">
+                                <h3 class="text-lg font-bold text-white">Senior Operations & Client Success Lead</h3>
+                                <p class="text-sm font-medium text-brand-400 mb-3">Enterprise Operations & Client Management</p>
+                                <ul class="space-y-2 text-xs text-slate-300">
+                                    <li class="flex items-start space-x-2">
+                                        <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-brand-400 shrink-0 mt-0.5"></i>
+                                        <span>Managed enterprise client relationships, achieving consistently high client retention and low churn rates.</span>
+                                    </li>
+                                    <li class="flex items-start space-x-2">
+                                        <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-brand-400 shrink-0 mt-0.5"></i>
+                                        <span>Oversee end-to-end customer onboarding, renewal tracking, and client satisfaction workflows.</span>
+                                    </li>
+                                    <li class="flex items-start space-x-2">
+                                        <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-brand-400 shrink-0 mt-0.5"></i>
+                                        <span>Designed SOPs and documentation that increased ticket resolution speed by 25%.</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 2 -->
+                <div class="relative mb-12 md:mb-16">
+                    <div class="flex flex-col md:flex-row items-start">
+                        <!-- Content Card (Left on Desktop) -->
+                        <div class="ml-12 md:ml-0 md:w-1/2 md:pr-12 md:text-right order-2 md:order-1">
+                            <div class="glass-panel p-6 rounded-2xl border border-slate-800 hover:border-slate-700 transition-all text-left md:text-right">
+                                <h3 class="text-lg font-bold text-white">Short-Term Personal Lines Insurance Specialist</h3>
+                                <p class="text-sm font-medium text-brand-400 mb-3">Insurance Operations & Client Services</p>
+                                <ul class="space-y-2 text-xs text-slate-300">
+                                    <li class="flex items-start space-x-2 md:justify-end">
+                                        <span class="order-2 md:order-1">Managed personal lines portfolio operations, policy endorsements, renewals, and client inquiries.</span>
+                                        <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-brand-400 shrink-0 mt-0.5 order-1 md:order-2"></i>
+                                    </li>
+                                    <li class="flex items-start space-x-2 md:justify-end">
+                                        <span class="order-2 md:order-1">Ensured strict compliance standards and precise record-keeping across insurance management systems.</span>
+                                        <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-brand-400 shrink-0 mt-0.5 order-1 md:order-2"></i>
+                                    </li>
+                                    <li class="flex items-start space-x-2 md:justify-end">
+                                        <span class="order-2 md:order-1">Maintained exceptional customer satisfaction scores through proactive follow-ups and empathetic service.</span>
+                                        <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-brand-400 shrink-0 mt-0.5 order-1 md:order-2"></i>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Timeline Point -->
+                        <div class="absolute left-4 md:left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-slate-900 border-2 border-brand-500 flex items-center justify-center z-10 shadow-lg shadow-brand-500/20 order-1 md:order-2">
+                            <i data-lucide="shield" class="w-4 h-4 text-brand-400"></i>
+                        </div>
+
+                        <!-- Date Badge (Desktop Right) -->
+                        <div class="md:w-1/2 md:pl-12 text-left mb-2 md:mb-0 order-1 md:order-3">
+                            <span class="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-brand-500/10 text-brand-400 border border-brand-500/20">
+                                2014 – 2020
+                            </span>
+                            <div class="text-xs text-slate-400 mt-1">Insurance & Risk Management</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 3 -->
+                <div class="relative">
+                    <div class="flex flex-col md:flex-row items-start">
+                        <!-- Date Badge (Desktop Left) -->
+                        <div class="md:w-1/2 md:pr-12 md:text-right mb-2 md:mb-0">
+                            <span class="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-brand-500/10 text-brand-400 border border-brand-500/20">
+                                2010 – 2014
+                            </span>
+                            <div class="text-xs text-slate-400 mt-1">Customer Support & Account Management</div>
+                        </div>
+
+                        <!-- Timeline Point -->
+                        <div class="absolute left-4 md:left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-slate-900 border-2 border-slate-700 flex items-center justify-center z-10">
+                            <i data-lucide="headphones" class="w-4 h-4 text-slate-400"></i>
+                        </div>
+
+                        <!-- Content Card (Right) -->
+                        <div class="ml-12 md:ml-0 md:w-1/2 md:pl-12">
+                            <div class="glass-panel p-6 rounded-2xl border border-slate-800 hover:border-slate-700 transition-all">
+                                <h3 class="text-lg font-bold text-white">Customer Operations & Support Coordinator</h3>
+                                <p class="text-sm font-medium text-slate-400 mb-3">Client Services & Administrative Support</p>
+                                <ul class="space-y-2 text-xs text-slate-300">
+                                    <li class="flex items-start space-x-2">
+                                        <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-slate-400 shrink-0 mt-0.5"></i>
+                                        <span>Handled high-volume inbound inquiries across telephone, email, and ticketing systems.</span>
+                                    </li>
+                                    <li class="flex items-start space-x-2">
+                                        <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-slate-400 shrink-0 mt-0.5"></i>
+                                        <span>Maintained immaculate record accuracy in customer databases and internal logs.</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications & Credentials Section -->
+    <section id="certifications" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                <div>
+                    <div class="inline-flex items-center space-x-2 text-brand-400 text-xs font-semibold uppercase tracking-wider mb-2">
+                        <i data-lucide="file-check" class="w-4 h-4"></i>
+                        <span>Verified Credentials</span>
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">Certifications & Training</h2>
+                </div>
+                <p class="text-slate-400 text-sm mt-2 md:mt-0 max-w-md">Continuous learning in modern web technologies, UI/UX fundamentals, and operational methodologies.</p>
+            </div>
+
+            <!-- Certifications Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                
+                <!-- Cert 1: freeCodeCamp -->
+                <div class="glass-panel p-6 rounded-2xl border border-slate-800 hover:border-brand-500/40 transition-all duration-300 group flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="p-3 rounded-xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                                <i data-lucide="code-2" class="w-6 h-6"></i>
+                            </div>
+                            <span class="text-xs font-medium text-slate-400">Verified</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-white group-hover:text-brand-400 transition-colors">Responsive Web Design</h3>
+                        <p class="text-xs font-semibold text-slate-400 mt-1 mb-3">freeCodeCamp</p>
+                        <p class="text-xs text-slate-400 leading-relaxed mb-6">
+                            Demonstrates proficiency in modern HTML5, CSS3, responsive layouts, accessibility standards, and web development fundamentals.
+                        </p>
+                    </div>
+                    <button onclick="openCertModal('Responsive Web Design', 'freeCodeCamp', 'Verified credential covering responsive layout architectures, HTML5 semantics, CSS Grid, and Flexbox standards.')" class="w-full py-2.5 px-4 rounded-xl bg-slate-800 hover:bg-brand-600 text-slate-200 hover:text-white text-xs font-medium transition-all flex items-center justify-center space-x-2">
+                        <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                        <span>View Certificate Details</span>
+                    </button>
+                </div>
+
+                <!-- Cert 2: UI/UX Fundamentals -->
+                <div class="glass-panel p-6 rounded-2xl border border-slate-800 hover:border-brand-500/40 transition-all duration-300 group flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="p-3 rounded-xl bg-purple-500/10 text-purple-400 border border-purple-500/20">
+                                <i data-lucide="layout" class="w-6 h-6"></i>
+                            </div>
+                            <span class="text-xs font-medium text-slate-400">Verified</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-white group-hover:text-brand-400 transition-colors">UI/UX Design Fundamentals</h3>
+                        <p class="text-xs font-semibold text-slate-400 mt-1 mb-3">Design & Digital Literacy</p>
+                        <p class="text-xs text-slate-400 leading-relaxed mb-6">
+                            Focuses on user journey mapping, visual hierarchy, intuitive interface design, and client-centric product design principles.
+                        </p>
+                    </div>
+                    <button onclick="openCertModal('UI/UX Design Fundamentals', 'Design Literacy Certification', 'Covers core user experience concepts, wireframing, client journey mapping, and visual hierarchy principles.')" class="w-full py-2.5 px-4 rounded-xl bg-slate-800 hover:bg-brand-600 text-slate-200 hover:text-white text-xs font-medium transition-all flex items-center justify-center space-x-2">
+                        <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                        <span>View Certificate Details</span>
+                    </button>
+                </div>
+
+                <!-- Cert 3: Short-Term Insurance & Client Operations -->
+                <div class="glass-panel p-6 rounded-2xl border border-slate-800 hover:border-brand-500/40 transition-all duration-300 group flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="p-3 rounded-xl bg-blue-500/10 text-brand-400 border border-blue-500/20">
+                                <i data-lucide="shield-alert" class="w-6 h-6"></i>
+                            </div>
+                            <span class="text-xs font-medium text-slate-400">Professional</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-white group-hover:text-brand-400 transition-colors">Short-Term Personal Lines Insurance</h3>
+                        <p class="text-xs font-semibold text-slate-400 mt-1 mb-3">Insurance & Risk Management</p>
+                        <p class="text-xs text-slate-400 leading-relaxed mb-6">
+                            14+ years of practical and formal insurance operations training covering personal lines policies, claims oversight, and regulatory compliance.
+                        </p>
+                    </div>
+                    <button onclick="openCertModal('Short-Term Personal Lines Insurance', 'Industry Accreditation', 'Comprehensive qualification in short-term insurance policy administration, endorsement processing, and risk management.')" class="w-full py-2.5 px-4 rounded-xl bg-slate-800 hover:bg-brand-600 text-slate-200 hover:text-white text-xs font-medium transition-all flex items-center justify-center space-x-2">
+                        <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                        <span>View Certificate Details</span>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Skills & Systems Grid Section -->
+    <section id="skills" class="py-20 bg-slate-950/40 border-t border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <div class="inline-flex items-center space-x-2 text-brand-400 text-xs font-semibold uppercase tracking-wider mb-2">
+                    <i data-lucide="cpu" class="w-4 h-4"></i>
+                    <span>Capabilities</span>
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">Skills & Software Systems</h2>
+                <p class="text-slate-400 text-sm mt-2">Filter capabilities by operational domain or technical discipline.</p>
+                
+                <!-- Category Filter Tabs -->
+                <div class="flex flex-wrap items-center justify-center gap-2 mt-6" id="skill-filters">
+                    <button onclick="filterSkills('all')" class="skill-tab active px-4 py-2 rounded-xl text-xs font-medium bg-brand-600 text-white transition-all">All Capabilities</button>
+                    <button onclick="filterSkills('cs')" class="skill-tab px-4 py-2 rounded-xl text-xs font-medium glass-panel text-slate-300 hover:text-white transition-all">Client Success & Retention</button>
+                    <button onclick="filterSkills('systems')" class="skill-tab px-4 py-2 rounded-xl text-xs font-medium glass-panel text-slate-300 hover:text-white transition-all">CRMs & Software</button>
+                    <button onclick="filterSkills('tech')" class="skill-tab px-4 py-2 rounded-xl text-xs font-medium glass-panel text-slate-300 hover:text-white transition-all">Web & Digital Literacy</button>
+                </div>
+            </div>
+
+            <!-- Skills Cards Container -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="skills-grid">
+                
+                <!-- Skill Item 1 -->
+                <div class="skill-card cs p-5 rounded-2xl glass-panel border border-slate-800 hover:border-slate-700 transition-all">
+                    <div class="p-2.5 rounded-xl bg-brand-500/10 text-brand-400 w-max mb-3">
+                        <i data-lucide="users" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="text-sm font-bold text-white">Client Retention & Upsells</h3>
+                    <p class="text-xs text-slate-400 mt-1">Managing key accounts, driving renewals, and identifying value-add growth opportunities.</p>
+                </div>
+
+                <!-- Skill Item 2 -->
+                <div class="skill-card systems p-5 rounded-2xl glass-panel border border-slate-800 hover:border-slate-700 transition-all">
+                    <div class="p-2.5 rounded-xl bg-emerald-500/10 text-emerald-400 w-max mb-3">
+                        <i data-lucide="database" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="text-sm font-bold text-white">GoHighLevel (GHL)</h3>
+                    <p class="text-xs text-slate-400 mt-1">Pipeline administration, CRM contact workflows, calendar booking, and email/SMS triggers.</p>
+                </div>
+
+                <!-- Skill Item 3 -->
+                <div class="skill-card systems p-5 rounded-2xl glass-panel border border-slate-800 hover:border-slate-700 transition-all">
+                    <div class="p-2.5 rounded-xl bg-indigo-500/10 text-indigo-400 w-max mb-3">
+                        <i data-lucide="layers" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="text-sm font-bold text-white">AMS 360 & Agency Systems</h3>
+                    <p class="text-xs text-slate-400 mt-1">Insurance agency management, record processing, policy endorsements, and certificates.</p>
+                </div>
+
+                <!-- Skill Item 4 -->
+                <div class="skill-card tech p-5 rounded-2xl glass-panel border border-slate-800 hover:border-slate-700 transition-all">
+                    <div class="p-2.5 rounded-xl bg-purple-500/10 text-purple-400 w-max mb-3">
+                        <i data-lucide="code" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="text-sm font-bold text-white">HTML5, CSS3 & Git</h3>
+                    <p class="text-xs text-slate-400 mt-1">Frontend web development skills, version control via GitHub, and UI debugging capability.</p>
+                </div>
+
+                <!-- Skill Item 5 -->
+                <div class="skill-card cs p-5 rounded-2xl glass-panel border border-slate-800 hover:border-slate-700 transition-all">
+                    <div class="p-2.5 rounded-xl bg-brand-500/10 text-brand-400 w-max mb-3">
+                        <i data-lucide="headphones" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="text-sm font-bold text-white">Zendesk & Helpdesks</h3>
+                    <p class="text-xs text-slate-400 mt-1">SLA monitoring, omnichannel ticket handling, automated routing, and response templates.</p>
+                </div>
+
+                <!-- Skill Item 6 -->
+                <div class="skill-card systems p-5 rounded-2xl glass-panel border border-slate-800 hover:border-slate-700 transition-all">
+                    <div class="p-2.5 rounded-xl bg-sky-500/10 text-sky-400 w-max mb-3">
+                        <i data-lucide="slack" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="text-sm font-bold text-white">Google Workspace & Slack</h3>
+                    <p class="text-xs text-slate-400 mt-1">Asynchronous remote communication, document collaboration, Sheets tracking, and reporting.</p>
+                </div>
+
+                <!-- Skill Item 7 -->
+                <div class="skill-card cs p-5 rounded-2xl glass-panel border border-slate-800 hover:border-slate-700 transition-all">
+                    <div class="p-2.5 rounded-xl bg-amber-500/10 text-amber-400 w-max mb-3">
+                        <i data-lucide="file-text" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="text-sm font-bold text-white">SOP & Playbook Authoring</h3>
+                    <p class="text-xs text-slate-400 mt-1">Documenting standard operational procedures to train remote team members and standardize quality.</p>
+                </div>
+
+                <!-- Skill Item 8 -->
+                <div class="skill-card tech p-5 rounded-2xl glass-panel border border-slate-800 hover:border-slate-700 transition-all">
+                    <div class="p-2.5 rounded-xl bg-emerald-500/10 text-emerald-400 w-max mb-3">
+                        <i data-lucide="monitor" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="text-sm font-bold text-white">Remote Infrastructure</h3>
+                    <p class="text-xs text-slate-400 mt-1">Equipped with high-speed fiber internet, dual displays, noise-canceling VoIP hardware, and backup power.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Footer Section -->
+    <section id="contact" class="py-20 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            
+            <div class="gradient-border p-8 sm:p-12 glass-panel rounded-3xl">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    
+                    <div>
+                        <div class="inline-flex items-center space-x-2 text-brand-400 text-xs font-semibold uppercase tracking-wider mb-2">
+                            <i data-lucide="send" class="w-4 h-4"></i>
+                            <span>Get In Touch</span>
+                        </div>
+                        <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-4">
+                            Ready to strengthen your client success operations?
+                        </h2>
+                        <p class="text-slate-300 text-sm leading-relaxed mb-6">
+                            I am open to full-time, remote opportunities with United States and global organizations seeking experienced, reliable operations management.
+                        </p>
+
+                        <div class="space-y-4 text-sm">
+                            <div class="flex items-center space-x-3 text-slate-300">
+                                <div class="p-2.5 rounded-xl bg-slate-800 text-brand-400">
+                                    <i data-lucide="map-pin" class="w-5 h-5"></i>
+                                </div>
+                                <span>Western Cape, South Africa (Remote Worldwide)</span>
+                            </div>
+
+                            <div class="flex items-center space-x-3 text-slate-300">
+                                <div class="p-2.5 rounded-xl bg-slate-800 text-brand-400">
+                                    <i data-lucide="globe" class="w-5 h-5"></i>
+                                </div>
+                                <span>Portfolio: <a href="https://johannvictor.github.io" target="_blank" class="text-brand-400 hover:underline">johannvictor.github.io</a></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Direct Action Card -->
+                    <div class="bg-slate-900/80 p-6 rounded-2xl border border-slate-800 text-center sm:text-left space-y-4">
+                        <h3 class="text-lg font-bold text-white">Contact Johann Directly</h3>
+                        <p class="text-xs text-slate-400">Click below to open your preferred mail client or copy my contact details.</p>
+                        
+                        <div class="pt-2 space-y-3">
+                            <a href="mailto:jvic85@gmail.com" class="w-full py-3 px-4 rounded-xl bg-brand-600 hover:bg-brand-500 text-white text-sm font-semibold flex items-center justify-center space-x-2 shadow-lg shadow-brand-500/20 transition-all">
+                                <i data-lucide="mail" class="w-4 h-4"></i>
+                                <span>Send Email Inquiry</span>
+                            </a>
+
+                            <a href="https://www.linkedin.com/in/johann-victor-040a55180/?isSelfProfile=true" target="_blank" rel="noopener noreferrer" class="w-full py-3 px-4 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-sm font-semibold flex items-center justify-center space-x-2 transition-all border border-slate-700">
+                                <i data-lucide="linkedin" class="w-4 h-4 text-blue-400"></i>
+                                <span>View LinkedIn Profile</span>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="mt-16 pt-8 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+                <div>
+                    © <span id="current-year"></span> Johannes Jacobus (Johann) Victor. All rights reserved.
+                </div>
+                <div class="flex space-x-6">
+                    <a href="https://johannvictor.github.io" class="hover:text-slate-300 transition-colors">GitHub Pages</a>
+                    <a href="#about" class="hover:text-slate-300 transition-colors">Back to Top</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Certificate Info Modal (Pop-up) -->
+    <div id="cert-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm">
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-md w-full p-6 shadow-2xl relative space-y-4">
+            <button onclick="closeCertModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+            <div class="p-3 rounded-xl bg-brand-500/10 text-brand-400 w-max">
+                <i data-lucide="award" class="w-6 h-6"></i>
+            </div>
+            <h3 id="modal-title" class="text-xl font-bold text-white">Certificate Title</h3>
+            <p id="modal-issuer" class="text-xs font-semibold text-brand-400">Issuer Name</p>
+            <p id="modal-desc" class="text-xs text-slate-300 leading-relaxed">Certificate description goes here.</p>
+            <div class="pt-4 flex justify-end">
+                <button onclick="closeCertModal()" class="px-4 py-2 rounded-xl bg-slate-800 text-slate-200 hover:text-white text-xs font-medium">
+                    Close Preview
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Set current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Mobile Menu Toggle
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Copy Email Function
+        function copyEmail() {
+            const email = "jvic85@gmail.com";
+            const copyTextSpan = document.getElementById('copy-text');
+            
+            // Clipboard Fallback Strategy
+            const textarea = document.createElement('textarea');
+            textarea.value = email;
+            document.body.appendChild(textarea);
+            textarea.select();
+            try {
+                document.execCommand('copy');
+                copyTextSpan.textContent = "Email Copied!";
+                setTimeout(() => {
+                    copyTextSpan.textContent = "Copy Email";
+                }, 2000);
+            } catch (err) {
+                console.error('Failed to copy text', err);
+            }
+            document.body.removeChild(textarea);
+        }
+
+        // Interactive Skill Filter
+        function filterSkills(category) {
+            const tabs = document.querySelectorAll('.skill-tab');
+            const cards = document.querySelectorAll('.skill-card');
+
+            tabs.forEach(tab => {
+                tab.classList.remove('bg-brand-600', 'text-white', 'active');
+                tab.classList.add('glass-panel', 'text-slate-300');
+            });
+
+            event.target.classList.remove('glass-panel', 'text-slate-300');
+            event.target.classList.add('bg-brand-600', 'text-white', 'active');
+
+            cards.forEach(card => {
+                if (category === 'all' || card.classList.contains(category)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Certificate Modal Logic
+        function openCertModal(title, issuer, description) {
+            document.getElementById('modal-title').textContent = title;
+            document.getElementById('modal-issuer').textContent = issuer;
+            document.getElementById('modal-desc').textContent = description;
+            document.getElementById('cert-modal').classList.remove('hidden');
+        }
+
+        function closeCertModal() {
+            document.getElementById('cert-modal').classList.add('hidden');
+        }
+    </script>
 </body>
- 
 </html>
